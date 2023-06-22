@@ -1,0 +1,21 @@
+<div class="container">
+  <mat-form-field style="margin: 10px;">
+    <mat-label>X1:</mat-label>
+    <input [(ngModel)]="x1" matInput type="number" >
+  </mat-form-field>
+  <mat-form-field style="margin: 10px;">
+    <mat-label>Y1:</mat-label>
+    <input [(ngModel)]="y1" matInput type="number">
+  </mat-form-field>
+  <mat-form-field style="margin: 10px;">
+    <mat-label>X2:</mat-label>
+    <input [(ngModel)]="x2" matInput type="number">
+  </mat-form-field>
+  <mat-form-field style="margin: 10px;">
+    <mat-label>Y2:</mat-label>
+    <input [(ngModel)]="y2" matInput type="number">
+  </mat-form-field>
+  <button mat-raised-button (click)="calcular()" color="primary">Calcular</button>
+  <h1>El resultado es {{resultado}}</h1>
+
+  </div>
