@@ -1,0 +1,98 @@
+<h1>Registro de Pizzas:</h1>
+<div class="row">
+  <div class="col-6">
+    <form (ngSubmit)="obtenerDatos()" [formGroup]="pizzaForm">
+      <div class="row">
+        <div class="col-4">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" id="nombre" formControlName="nombre" required name="nombre" class="form-control">
+        <div *ngIf="pizzaForm.get('nombre')?.touched &&
+        pizzaForm.get('nombre')?.errors?.['required']" class="alert alert-danger">
+        Este campo es requerido
+        </div>
+        </div>
+        <div class="col-4">
+          <label for="direccion" class="form-label">Dirección</label>
+        <input type="text" id="direccion" formControlName="direccion" required name="direccion" class="form-control">
+        <div *ngIf="pizzaForm.get('direccion')?.touched &&
+        pizzaForm.get('direccion')?.errors?.['required']" class="alert alert-danger">
+        Este campo es requerido
+        </div>
+        </div>
+        <div class="col-4">
+          <label for="nombre" class="form-label">Telefono</label>
+        <input type="text" id="telefono" formControlName="telefono" required name="telefono" class="form-control">
+        <div *ngIf="pizzaForm.get('telefono')?.touched &&
+        pizzaForm.get('telefono')?.errors?.['required']" class="alert alert-danger">
+        Este campo es requerido
+        </div>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="form-label">Tamaño Pizza</label><br>
+        <input type="radio" formControlName="tamano" id="tamano1" name="tamano" value="1" checked>
+        <label for="tamano1">Chica $40</label><br>
+        <input type="radio" id="tamano2" formControlName="tamano" name="tamano" value="2">
+        <label for="tamano2">Mediana $80</label><br>
+        <input type="radio" id="tamano3" formControlName="tamano" name="tamano" value="3">
+        <label for="tamano3">Grande $120</label><br>
+      </div>
+      <div class="mb-4">
+        <label class="form-label">Ingredientes</label><br>
+        <input type="checkbox" id="jamon" name="jamon" formControlName="jamon">
+        <label for="jamon">Jamon</label><br>
+        <input type="checkbox" id="pina" name="pina" formControlName="pina">
+        <label for="pina">Piña</label><br>
+        <input type="checkbox" id="champi" name="champi" formControlName="champi">
+        <label for="champi">Champiñones</label>
+      </div>
+      <div class="mb-4">
+        <label for="numPizzas" class="form-label">Num. Pizzas</label>
+        <input type="text" id="numPizzas" formControlName="numPizzas" required name="numPizzas" class="form-control">
+        <div *ngIf="pizzaForm.get('numPizzas')?.touched &&
+        pizzaForm.get('numPizzas')?.errors?.['required']" class="alert alert-danger">
+        Este campo es requerido
+        </div>
+      </div>
+      <div class="d-grid gap-2 col-4 float-end">
+        <button class="btn btn-info btn-lg" type="submit">
+          Guardar
+        </button>
+      </div>
+    </form>
+    <form (ngSubmit)="obtenerTotal()" >
+      <div class="row">
+      <div class="d-grid gap-2 col-12">
+        <button class="btn btn-info btn-lg" type="submit">
+          Terminar
+        </button>
+      </div>
+    </div>
+    </form>
+  </div>
+  <div class="col-6">
+   <h1>Registros</h1>
+   <table class="table table-dark" style="text-align: center;">
+    <thead>
+    <tr>
+      <th>Tamaño</th>
+      <th>Ingredientes</th>
+      <th>Num. Pizzas</th>
+      <th>SubTotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pizza of array_pizzas">
+      <td>{{pizza.tamano}}</td>
+      <td>{{pizza.ingredientes}}</td>
+      <td>{{pizza.numPizzas}}</td>
+      <td>{{pizza.subtotal}}</td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+</div>
+
+<div *ngIf="total">
+  <h1>El total es: {{total}} del cliente {{nombreR}} con dirección {{direccionR}} y telefono {{telefonoR}}</h1>
+</div>
