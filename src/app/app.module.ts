@@ -10,12 +10,14 @@ import { MenuComponent } from './menu/menu.component';
 import { AppRoutingModule } from './app.routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PizzeriaComponent } from './pizzeria/pizzeria.component';
+import { CineComponent } from './cine/cine.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    PizzeriaComponent
+    PizzeriaComponent,
+    CineComponent
 
   ],
   imports: [

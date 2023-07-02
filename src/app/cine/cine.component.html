@@ -1,0 +1,50 @@
+<h1>Cinepolis:</h1>
+<div class="row">
+  <div class="col-6">
+    <form (ngSubmit)="obtenerDatos()" [formGroup]="cineForm">
+        <div class="mb-4">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" id="nombre" formControlName="nombre" required name="nombre" class="form-control">
+        <div *ngIf="cineForm.get('nombre')?.touched &&
+        cineForm.get('nombre')?.errors?.['required']" class="alert alert-danger">
+        Este campo es requerido
+        </div>
+        </div>
+        <div class="mb-4">
+          <label for="cantidad" class="form-label">Cantidad Compradores</label>
+        <input type="text" id="cantidad" formControlName="cantidad" required name="cantidad" class="form-control">
+        <div *ngIf="cineForm.get('cantidad')?.touched &&
+        cineForm.get('cantidad')?.errors?.['required']" class="alert alert-danger">
+        Este campo es requerido
+        </div>
+        </div>
+        <div class="mb-4">
+        <label class="form-label">Tarjeta de Cinepolis</label><br>
+        <input type="radio" formControlName="tarjeta" id="tarjeta1" name="tarjeta" value="1" >
+        <label for="tarjeta1">Si</label><br>
+        <input type="radio" id="tarjeta2" formControlName="tarjeta" name="tarjeta" value="2" [checked]="true">
+        <label for="tarjeta2">No</label><br>
+      </div>
+      <div class="mb-4">
+        <label for="cantidadB" class="form-label">Cantidad Tickets</label>
+        <input type="text" id="cantidadB" formControlName="cantidadB" required name="cantidadB" class="form-control">
+        <div *ngIf="cineForm.get('cantidadB')?.touched &&
+        cineForm.get('cantidadB')?.errors?.['required']" class="alert alert-danger">
+        Este campo es requerido
+        </div>
+      </div>
+      <div class="d-grid gap-2 col-4 float-end">
+        <button class="btn btn-info btn-lg" type="submit">
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="col-6">
+   <h1>Pago</h1>
+   <div class="mb-4">
+    <label for="total" class="form-label">Valor a pagar:</label>
+    <input *ngIf="resultado" type="text" id="total" name="total" class="form-control" [readOnly]="true" [value]="resultado">
+  </div>
+  </div>
+</div>
